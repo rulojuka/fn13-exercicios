@@ -251,5 +251,113 @@ namespace OiMundo
 			}
 			MessageBox.Show(tabela);
 		}
+
+		private void button20_Click(object sender, EventArgs e)
+		{
+			Conta contaVictor = new Conta();
+			contaVictor.titular = "victor";
+			contaVictor.numero = 1;
+			contaVictor.saldo = 100.0;
+
+			Conta contaAlessandro = new Conta();
+			contaAlessandro.titular = "alessandro";
+			contaAlessandro.numero = 2;
+			contaAlessandro.saldo = 100.0;
+
+			MessageBox.Show(contaVictor.titular);
+			MessageBox.Show(contaAlessandro.titular);
+		}
+
+		private void button21_Click(object sender, EventArgs e)
+		{
+			Conta contaVictor = new Conta();
+			contaVictor.titular = "victor";
+			contaVictor.numero = 1;
+			contaVictor.saldo = 100.0;
+			contaVictor.Deposita(100.0);
+			MessageBox.Show("Saldo atual: " + contaVictor.saldo);
+			contaVictor.Saca(50.0);
+			MessageBox.Show("Saldo atual: " + contaVictor.saldo);
+
+			Conta contaAlessandro = new Conta();
+			contaAlessandro.titular = "alessandro";
+			contaAlessandro.numero = 2;
+			contaAlessandro.saldo = 0.0;
+			contaAlessandro.Deposita(1000.0);
+			MessageBox.Show("Saldo atual: " + contaAlessandro.saldo);
+			contaAlessandro.Saca(500.0);
+			MessageBox.Show("Saldo atual: " + contaAlessandro.saldo);
+		}
+
+		private void button22_Click(object sender, EventArgs e)
+		{
+			Conta mauricio = new Conta();
+			mauricio.saldo = 2000.0;
+
+			Conta guilherme = new Conta();
+			guilherme.saldo = 5000.0;
+
+			mauricio.saldo -= 200.0;
+			guilherme.saldo += 200.0;
+
+			MessageBox.Show("mauricio: " + mauricio.saldo);
+			MessageBox.Show("guilherme: " + guilherme.saldo);
+		}
+
+		private void button23_Click(object sender, EventArgs e)
+		{
+			Conta mauricio = new Conta();
+			mauricio.numero = 1;
+			mauricio.titular = "Mauricio";
+			mauricio.saldo = 100.0;
+
+			Conta mauricio2 = new Conta();
+			mauricio.numero = 1;
+			mauricio.titular = "Mauricio";
+			mauricio.saldo = 100.0;
+
+			if(mauricio == mauricio2)
+			{
+				MessageBox.Show("As contas são iguais");
+			}
+			else
+			{
+				MessageBox.Show("As contas são diferentes");
+			}
+		}
+
+		private void button24_Click(object sender, EventArgs e)
+		{
+			Conta mauricio = new Conta();
+			mauricio.saldo = 2000.0;
+
+			Conta copia = mauricio;
+			copia.saldo = 3000.0;
+
+			MessageBox.Show("mauricio: " + mauricio.saldo);
+			MessageBox.Show("copia: " + copia.saldo);
+		}
+
+		private void button25_Click(object sender, EventArgs e)
+		{
+			Conta mauricio = new Conta();
+			mauricio.saldo = 2000.0;
+			if(mauricio.Saca(1500.0)){
+				MessageBox.Show("Saque realizado com sucesso");
+			}
+			else
+			{
+				MessageBox.Show("Saldo insuficiente");
+			}
+
+			if (mauricio.Saca(1500.0))
+			{
+				MessageBox.Show("Saque realizado com sucesso");
+			}
+			else
+			{
+				MessageBox.Show("Saldo insuficiente");
+			}
+		}
 	}
 }
