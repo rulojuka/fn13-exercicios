@@ -8,15 +8,15 @@ namespace Conta
 {
 	class Cliente
 	{
-		public string nome;
-		public string rg;
-		public string cpf;
-		public string endereco;
-		public int idade;
-
-		public bool ehMaiorDeIdade()
+		public string Nome { get; set; }
+		public Cliente()
 		{
-			return idade >= 18;
+
 		}
+		public Cliente(string nome)
+		{
+			this.Nome = nome;
+		}
+		
 	}
 }

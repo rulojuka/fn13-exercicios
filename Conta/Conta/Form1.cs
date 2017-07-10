@@ -16,5 +16,11 @@ namespace Conta
 		{
 			InitializeComponent();
 		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			Cliente semNome = new Cliente();
+			Cliente alessandro = new Cliente("Alessandro");
+		}
 	}
 }

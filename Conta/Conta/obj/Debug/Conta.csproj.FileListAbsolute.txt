@@ -1,0 +1,8 @@
+C:\Users\rulojuka\workspace\fn13-exercicios\Conta\Conta\bin\Debug\Conta.exe.config
+C:\Users\rulojuka\workspace\fn13-exercicios\Conta\Conta\bin\Debug\Conta.exe
+C:\Users\rulojuka\workspace\fn13-exercicios\Conta\Conta\bin\Debug\Conta.pdb
+C:\Users\rulojuka\workspace\fn13-exercicios\Conta\Conta\obj\Debug\Conta.Form1.resources
+C:\Users\rulojuka\workspace\fn13-exercicios\Conta\Conta\obj\Debug\Conta.Properties.Resources.resources
+C:\Users\rulojuka\workspace\fn13-exercicios\Conta\Conta\obj\Debug\Conta.csproj.GenerateResource.Cache
+C:\Users\rulojuka\workspace\fn13-exercicios\Conta\Conta\obj\Debug\Conta.exe
+C:\Users\rulojuka\workspace\fn13-exercicios\Conta\Conta\obj\Debug\Conta.pdb

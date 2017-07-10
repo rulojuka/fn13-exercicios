@@ -9,8 +9,8 @@ namespace Conta
 	class Conta
 	{
 		public double Saldo { get; private set; }
-		public Cliente titular;
-		public int numero;
+		public Cliente Titular { get; set; }
+		public int Numero { get; set; }
 
 		public void Deposita(double valor)
 		{
