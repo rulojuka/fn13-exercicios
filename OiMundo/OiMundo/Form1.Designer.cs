@@ -53,6 +53,8 @@
 			this.button23 = new System.Windows.Forms.Button();
 			this.button24 = new System.Windows.Forms.Button();
 			this.button25 = new System.Windows.Forms.Button();
+			this.button26 = new System.Windows.Forms.Button();
+			this.button27 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -305,11 +307,33 @@
 			this.button25.UseVisualStyleBackColor = true;
 			this.button25.Click += new System.EventHandler(this.button25_Click);
 			// 
+			// button26
+			// 
+			this.button26.Location = new System.Drawing.Point(346, 37);
+			this.button26.Name = "button26";
+			this.button26.Size = new System.Drawing.Size(75, 23);
+			this.button26.TabIndex = 25;
+			this.button26.Text = "Ex 6.8.2";
+			this.button26.UseVisualStyleBackColor = true;
+			this.button26.Click += new System.EventHandler(this.button26_Click);
+			// 
+			// button27
+			// 
+			this.button27.Location = new System.Drawing.Point(346, 67);
+			this.button27.Name = "button27";
+			this.button27.Size = new System.Drawing.Size(75, 23);
+			this.button27.TabIndex = 26;
+			this.button27.Text = "Ex 6.8.3";
+			this.button27.UseVisualStyleBackColor = true;
+			this.button27.Click += new System.EventHandler(this.button27_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(404, 279);
+			this.ClientSize = new System.Drawing.Size(471, 279);
+			this.Controls.Add(this.button27);
+			this.Controls.Add(this.button26);
 			this.Controls.Add(this.button25);
 			this.Controls.Add(this.button24);
 			this.Controls.Add(this.button23);
@@ -368,6 +392,8 @@
 		private System.Windows.Forms.Button button23;
 		private System.Windows.Forms.Button button24;
 		private System.Windows.Forms.Button button25;
+		private System.Windows.Forms.Button button26;
+		private System.Windows.Forms.Button button27;
 	}
 }
 

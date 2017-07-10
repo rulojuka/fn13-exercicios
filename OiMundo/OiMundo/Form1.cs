@@ -255,23 +255,29 @@ namespace OiMundo
 		private void button20_Click(object sender, EventArgs e)
 		{
 			Conta contaVictor = new Conta();
-			contaVictor.titular = "victor";
+			Cliente victor = new Cliente();
+			victor.nome = "victor";
+			contaVictor.titular = victor;
 			contaVictor.numero = 1;
 			contaVictor.saldo = 100.0;
 
 			Conta contaAlessandro = new Conta();
-			contaAlessandro.titular = "alessandro";
+			Cliente alessandro = new Cliente();
+			alessandro.nome = "alessandro";
+			contaAlessandro.titular = alessandro;
 			contaAlessandro.numero = 2;
 			contaAlessandro.saldo = 100.0;
 
-			MessageBox.Show(contaVictor.titular);
-			MessageBox.Show(contaAlessandro.titular);
+			MessageBox.Show(contaVictor.titular.nome);
+			MessageBox.Show(contaAlessandro.titular.nome);
 		}
 
 		private void button21_Click(object sender, EventArgs e)
 		{
 			Conta contaVictor = new Conta();
-			contaVictor.titular = "victor";
+			Cliente victor = new Cliente();
+			victor.nome = "victor";
+			contaVictor.titular = victor;
 			contaVictor.numero = 1;
 			contaVictor.saldo = 100.0;
 			contaVictor.Deposita(100.0);
@@ -280,7 +286,9 @@ namespace OiMundo
 			MessageBox.Show("Saldo atual: " + contaVictor.saldo);
 
 			Conta contaAlessandro = new Conta();
-			contaAlessandro.titular = "alessandro";
+			Cliente alessandro = new Cliente();
+			alessandro.nome = "Alessandro";
+			contaAlessandro.titular = alessandro;
 			contaAlessandro.numero = 2;
 			contaAlessandro.saldo = 0.0;
 			contaAlessandro.Deposita(1000.0);
@@ -307,16 +315,20 @@ namespace OiMundo
 		private void button23_Click(object sender, EventArgs e)
 		{
 			Conta mauricio = new Conta();
+			Cliente mau = new Cliente();
+			mau.nome = "Mauricio";
 			mauricio.numero = 1;
-			mauricio.titular = "Mauricio";
+			mauricio.titular = mau;
 			mauricio.saldo = 100.0;
 
 			Conta mauricio2 = new Conta();
+			Cliente mau2 = new Cliente();
+			mau2.nome = "Mauricio";
 			mauricio.numero = 1;
-			mauricio.titular = "Mauricio";
+			mauricio.titular = mau2;
 			mauricio.saldo = 100.0;
 
-			if(mauricio == mauricio2)
+			if (mauricio == mauricio2)
 			{
 				MessageBox.Show("As contas são iguais");
 			}
@@ -358,6 +370,27 @@ namespace OiMundo
 			{
 				MessageBox.Show("Saldo insuficiente");
 			}
+		}
+
+		private void button26_Click(object sender, EventArgs e)
+		{
+			Conta umaConta = new Conta();
+			Cliente guilherme = new Cliente();
+			guilherme.nome = "Guilherme Silveira";
+			umaConta.titular = guilherme;
+
+			MessageBox.Show(umaConta.titular.nome);
+		}
+
+		private void button27_Click(object sender, EventArgs e)
+		{
+			Conta umaConta = new Conta();
+			Cliente guilherme = new Cliente();
+			guilherme.rg = "12345678-9";
+			umaConta.titular = guilherme;
+			umaConta.titular.rg = "98765432-1";
+
+			MessageBox.Show(guilherme.rg);
 		}
 	}
 }

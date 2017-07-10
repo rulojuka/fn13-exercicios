@@ -9,7 +9,7 @@ namespace OiMundo
 	class Conta
 	{
 		public double saldo;
-		public string titular;
+		public Cliente titular;
 		public int numero;
 
 		public void Deposita(double valor)
