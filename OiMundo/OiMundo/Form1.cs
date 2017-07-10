@@ -30,7 +30,7 @@ namespace OiMundo
 			double media = (idadeJoao + idadeMaria + idadeAlessandro) / 3.0;
 
 			MessageBox.Show("A média é : " + media);
-			
+
 		}
 
 		private void button3_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace OiMundo
 		private void button4_Click(object sender, EventArgs e)
 		{
 			double pi = 3.14;
-			int piQuebrado = (int) pi;
+			int piQuebrado = (int)pi;
 			MessageBox.Show("piQuebrado é : " + piQuebrado);
 		}
 
@@ -67,12 +67,13 @@ namespace OiMundo
 		{
 			double saldo = 100.0;
 			double valorSaque = 10.0;
-			if( saldo >= valorSaque)
+			if (saldo >= valorSaque)
 			{
 				saldo -= valorSaque;
 				MessageBox.Show("Saque realizado com sucesso");
 			}
-			else{
+			else
+			{
 				MessageBox.Show("Saldo insuficiente");
 			}
 		}
@@ -95,11 +96,11 @@ namespace OiMundo
 		private void button8_Click(object sender, EventArgs e)
 		{
 			double saldo = 500.0;
-			if(saldo < 0.0)
+			if (saldo < 0.0)
 			{
 				MessageBox.Show("Você está no negativo");
 			}
-			else if(saldo < 1000000.0)
+			else if (saldo < 1000000.0)
 			{
 				MessageBox.Show("Você é um bom cliente");
 			}
@@ -114,7 +115,7 @@ namespace OiMundo
 		{
 			int idade = 17;
 			bool brasileira = true;
-			if(idade>=16 && brasileira)
+			if (idade >= 16 && brasileira)
 			{
 				MessageBox.Show("Pode votar.");
 			}
@@ -129,7 +130,7 @@ namespace OiMundo
 			double valorNotaFiscal;
 			double imposto;
 			valorNotaFiscal = 1500;
-			if(valorNotaFiscal <= 1000.0)
+			if (valorNotaFiscal <= 1000.0)
 			{
 				imposto = valorNotaFiscal * 0.020;
 			}
@@ -154,6 +155,101 @@ namespace OiMundo
 			string mensagem = "";
 			mensagem = valor > 10 ? "Maior que dez" : "Menor que dez";
 			MessageBox.Show(mensagem);
+		}
+
+		private void button12_Click(object sender, EventArgs e)
+		{
+			int total = 2;
+			for (int i = 0; i < 5; i += 1)
+			{
+				total = total * 2;
+			}
+			MessageBox.Show("O total é: " + total);
+		}
+
+		private void button13_Click(object sender, EventArgs e)
+		{
+			int soma = 0;
+			for (int i = 1; i <= 100; i++)
+			{
+				soma += i;
+			}
+			MessageBox.Show("A soma dos números de 1 a 1000 é: " + soma);
+		}
+
+		private void button14_Click(object sender, EventArgs e)
+		{
+			for (int i = 1; i <= 100; i++)
+			{
+				if (i % 3 == 0)
+				{
+					MessageBox.Show(i + " é múltiplo de 3");
+				}
+			}
+		}
+
+		private void button15_Click(object sender, EventArgs e)
+		{
+			int soma = 0;
+			for (int i = 1; i <= 100; i++)
+			{
+				if (i % 3 != 0)
+				{
+					soma += i;
+				}
+			}
+			MessageBox.Show("O resultado é: " + soma);
+		}
+
+		private void button16_Click(object sender, EventArgs e)
+		{
+			for (int i = 0; i <= 30; i++)
+			{
+				if (i % 3 == 0 || i % 4 == 0)
+				{
+					MessageBox.Show(i + " é múltiplo de 3 ou 4");
+				}
+			}
+		}
+
+		private void button17_Click(object sender, EventArgs e)
+		{
+			int fatorial = 1;
+			for(int n = 1; n<=10; n++)
+			{
+				MessageBox.Show("Fatorial de "+n+" é: " + fatorial);
+				fatorial *= n + 1;
+			}
+		}
+
+		private void button18_Click(object sender, EventArgs e)
+		{
+			int x = 1;
+			int y = 1;
+			int aux=x+y;
+			MessageBox.Show(""+x);
+			MessageBox.Show("" + y);
+			while (aux<=100)
+			{
+				aux = x + y;
+				x = y;
+				y = aux;
+				MessageBox.Show("" + aux);
+			}
+		}
+
+		private void button19_Click(object sender, EventArgs e)
+		{
+			string tabela="";
+			for (int i = 1; i < 7; i++)
+			{
+				for (int j = 1; j <= i; j++)
+				{
+					tabela += i * j + " ";
+				}
+				tabela += "\n";
+			}
+			MessageBox.Show(tabela);
 		}
 	}
 }
