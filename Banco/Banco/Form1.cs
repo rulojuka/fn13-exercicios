@@ -21,12 +21,18 @@ namespace Banco
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			conta = new Conta();
+			conta = new ContaPoupanca();
 			titular = new Cliente("Victor");
 			conta.Numero = 1;
 			conta.Titular = titular;
 			textoTitular.Text = Convert.ToString(conta.Titular.Nome);
 			textoNumero.Text = Convert.ToString(conta.Numero);
+
+			Conta contaPoupanca = new ContaPoupanca();
+			contaPoupanca.Deposita(125.0);
+			TotalizadorDeContas t = new TotalizadorDeContas();
+			t.Adiciona(contaPoupanca);
+			MessageBox.Show("Total do totalizador de contas: " + t.SaldoTotal);
 		}
 
 		private void button1_Click(object sender, EventArgs e)

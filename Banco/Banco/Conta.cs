@@ -8,16 +8,16 @@ namespace Banco
 {
 	class Conta
 	{
-		public double Saldo { get; private set; }
+		public double Saldo { get; protected set; }
 		public Cliente Titular { get; set; }
 		public int Numero { get; set; }
 
-		public void Deposita(double valor)
+		public virtual void Deposita(double valor)
 		{
 			this.Saldo += valor;
 		}
 
-		public bool Saca(double valor)
+		public virtual bool Saca(double valor)
 		{
 			if (valor <= this.Saldo)
 			{
