@@ -1,0 +1,9 @@
+C:\Users\rulojuka\workspace\fn13-exercicios\OiMundo\OiMundo\bin\Debug\OiMundo.exe.config
+C:\Users\rulojuka\workspace\fn13-exercicios\OiMundo\OiMundo\bin\Debug\OiMundo.exe
+C:\Users\rulojuka\workspace\fn13-exercicios\OiMundo\OiMundo\bin\Debug\OiMundo.pdb
+C:\Users\rulojuka\workspace\fn13-exercicios\OiMundo\OiMundo\obj\Debug\OiMundo.csprojResolveAssemblyReference.cache
+C:\Users\rulojuka\workspace\fn13-exercicios\OiMundo\OiMundo\obj\Debug\OiMundo.Form1.resources
+C:\Users\rulojuka\workspace\fn13-exercicios\OiMundo\OiMundo\obj\Debug\OiMundo.Properties.Resources.resources
+C:\Users\rulojuka\workspace\fn13-exercicios\OiMundo\OiMundo\obj\Debug\OiMundo.csproj.GenerateResource.Cache
+C:\Users\rulojuka\workspace\fn13-exercicios\OiMundo\OiMundo\obj\Debug\OiMundo.exe
+C:\Users\rulojuka\workspace\fn13-exercicios\OiMundo\OiMundo\obj\Debug\OiMundo.pdb
