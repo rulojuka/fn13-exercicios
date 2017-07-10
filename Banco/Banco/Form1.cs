@@ -34,12 +34,17 @@ namespace Banco
 			this.contas[2].Titular = new Cliente("osni");
 			this.contas[2].Numero = 1;
 
+			foreach (Conta conta in contas)
+			{
+				comboContas.Items.Add("titular: " + conta.Titular.Nome);
+				comboDestinoTransferencia.Items.Add("titular: " + conta.Titular.Nome);
+			}
 			
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			int indice = Convert.ToInt32(textoIndice.Text);
+			int indice = comboContas.SelectedIndex;
 			Conta selecionada = this.contas[indice];
 
 			selecionada.Deposita(Convert.ToDouble(textoValor.Text));
@@ -53,19 +58,34 @@ namespace Banco
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			int indice = Convert.ToInt32(textoIndice.Text);
+			int indice = comboContas.SelectedIndex;
 			Conta selecionada = this.contas[indice];
 			selecionada.Saca(Convert.ToDouble(textoValor.Text));
 			AtualizaSaldo(selecionada);
 		}
 
-		private void button3_Click(object sender, EventArgs e)
+
+		private void comboContas_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			int indice = Convert.ToInt32(textoIndice.Text);
+			int indice = comboContas.SelectedIndex;
 			Conta selecionada = this.contas[indice];
 			textoNumero.Text = Convert.ToString(selecionada.Numero);
 			textoTitular.Text = Convert.ToString(selecionada.Titular.Nome);
 			textoSaldo.Text = Convert.ToString(selecionada.Saldo);
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			int indiceOrigem = comboContas.SelectedIndex;
+			Conta origem = this.contas[indiceOrigem];
+
+			int indiceDestino = comboDestinoTransferencia.SelectedIndex;
+			Conta destino = this.contas[indiceDestino];
+
+			double valor = Convert.ToDouble(textoValor.Text);
+
+			origem.Transfere(valor, destino);
+			AtualizaSaldo(origem);
 		}
 	}
 }
