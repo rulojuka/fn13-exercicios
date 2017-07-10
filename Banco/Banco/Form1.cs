@@ -12,8 +12,7 @@ namespace Banco
 {
 	public partial class Form1 : Form
 	{
-		Conta conta;
-		Cliente titular;
+		private Conta[] contas;
 		public Form1()
 		{
 			InitializeComponent();
@@ -21,35 +20,52 @@ namespace Banco
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			conta = new ContaPoupanca();
-			titular = new Cliente("Victor");
-			conta.Numero = 1;
-			conta.Titular = titular;
-			textoTitular.Text = Convert.ToString(conta.Titular.Nome);
-			textoNumero.Text = Convert.ToString(conta.Numero);
+			contas = new Conta[3];
 
-			Conta contaPoupanca = new ContaPoupanca();
-			contaPoupanca.Deposita(125.0);
-			TotalizadorDeContas t = new TotalizadorDeContas();
-			t.Adiciona(contaPoupanca);
-			MessageBox.Show("Total do totalizador de contas: " + t.SaldoTotal);
+			this.contas[0] = new Conta();
+			this.contas[0].Titular = new Cliente("Victor");
+			this.contas[0].Numero = 1;
+
+			this.contas[1] = new ContaPoupanca();
+			this.contas[1].Titular = new Cliente("mauricio");
+			this.contas[1].Numero = 1;
+
+			this.contas[2] = new ContaCorrente();
+			this.contas[2].Titular = new Cliente("osni");
+			this.contas[2].Numero = 1;
+
+			
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			conta.Deposita(Convert.ToDouble(textoValor.Text));
-			AtualizaSaldo();
+			int indice = Convert.ToInt32(textoIndice.Text);
+			Conta selecionada = this.contas[indice];
+
+			selecionada.Deposita(Convert.ToDouble(textoValor.Text));
+			AtualizaSaldo(selecionada);
 		}
 
-		private void AtualizaSaldo()
+		private void AtualizaSaldo(Conta conta)
 		{
 			textoSaldo.Text = Convert.ToString(conta.Saldo);
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			conta.Saca(Convert.ToDouble(textoValor.Text));
-			AtualizaSaldo();
+			int indice = Convert.ToInt32(textoIndice.Text);
+			Conta selecionada = this.contas[indice];
+			selecionada.Saca(Convert.ToDouble(textoValor.Text));
+			AtualizaSaldo(selecionada);
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			int indice = Convert.ToInt32(textoIndice.Text);
+			Conta selecionada = this.contas[indice];
+			textoNumero.Text = Convert.ToString(selecionada.Numero);
+			textoTitular.Text = Convert.ToString(selecionada.Titular.Nome);
+			textoSaldo.Text = Convert.ToString(selecionada.Saldo);
 		}
 	}
 }
