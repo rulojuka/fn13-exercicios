@@ -13,32 +13,38 @@ namespace Banco
 	public partial class Form1 : Form
 	{
 		private Conta[] contas;
+        private int numeroDeContas;
 		public Form1()
 		{
 			InitializeComponent();
 		}
+        public void AdicionaConta(Conta conta)
+        {
+            this.contas[this.numeroDeContas] = conta;
+            this.numeroDeContas++;
+            comboContas.Items.Add("titular: " + conta.Titular.Nome);
+            comboDestinoTransferencia.Items.Add("titular: " + conta.Titular.Nome);
+        }
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			contas = new Conta[3];
+			contas = new Conta[10];
 
-			this.contas[0] = new Conta();
-			this.contas[0].Titular = new Cliente("Victor");
-			this.contas[0].Numero = 1;
+            Conta aux;
+			aux = new Conta();
+			aux.Titular = new Cliente("Victor");
+			aux.Numero = 1;
+            this.AdicionaConta(aux);
 
-			this.contas[1] = new ContaPoupanca();
-			this.contas[1].Titular = new Cliente("mauricio");
-			this.contas[1].Numero = 1;
+			aux = new ContaPoupanca();
+			aux.Titular = new Cliente("mauricio");
+			aux.Numero = 2;
+            this.AdicionaConta(aux);
 
-			this.contas[2] = new ContaCorrente();
-			this.contas[2].Titular = new Cliente("osni");
-			this.contas[2].Numero = 1;
-
-			foreach (Conta conta in contas)
-			{
-				comboContas.Items.Add("titular: " + conta.Titular.Nome);
-				comboDestinoTransferencia.Items.Add("titular: " + conta.Titular.Nome);
-			}
+            aux = new ContaCorrente();
+			aux.Titular = new Cliente("osni");
+			aux.Numero = 3;
+            this.AdicionaConta(aux);
 			
 		}
 
@@ -87,5 +93,11 @@ namespace Banco
 			origem.Transfere(valor, destino);
 			AtualizaSaldo(origem);
 		}
-	}
+
+        private void botaoNovaConta_Click(object sender, EventArgs e)
+        {
+            FormCadastroConta formularioCadastro = new FormCadastroConta(this);
+            formularioCadastro.ShowDialog();
+        }
+    }
 }
