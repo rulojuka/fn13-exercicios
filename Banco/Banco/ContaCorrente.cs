@@ -8,21 +8,28 @@ namespace Banco
 {
 	class ContaCorrente:Conta,ITributavel
 	{
-		public override bool Saca(double valor)
+		public override void Saca(double valor)
 		{
-            if(this.Saldo >= valor + 0.05)
+            if(valor < 0.0)
             {
-                this.Saldo -= valor + 0.05;
-                return true;
+                throw new ArgumentException();
+            }
+            else if(this.Saldo < valor + 0.05)
+            {
+                throw new SaldoInsuficienteException();
             }
             else
             {
-                return false;
+                this.Saldo -= valor + 0.05;
             }
 		}
 
 		public override void Deposita(double valor)
 		{
+            if (valor < 0)
+            {
+                throw new ArgumentException();
+            }
             this.Saldo += valor - 0.10;
 		}
 
