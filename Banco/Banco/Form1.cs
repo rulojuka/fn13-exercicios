@@ -14,6 +14,7 @@ namespace Banco
     public partial class Form1 : Form
     {
         private List<Conta> contas;
+        private Dictionary<string, Conta> dicionario;
         public Form1()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace Banco
             this.contas.Add(conta);
             comboContas.Items.Add(conta);
             comboDestinoTransferencia.Items.Add(conta);
+            this.dicionario.Add(conta.Titular.Nome, conta);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -30,6 +32,7 @@ namespace Banco
             //comboContas.DisplayMember = "Titular";
             //comboDestinoTransferencia.DisplayMember = "Titular";
             contas = new List<Conta>();
+            dicionario = new Dictionary<string, Conta>();
 
             Conta aux;
             aux = new ContaCorrente();
@@ -51,7 +54,7 @@ namespace Banco
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Conta selecionada = (Conta) comboContas.SelectedItem;
+            Conta selecionada = (Conta)comboContas.SelectedItem;
             try
             {
                 selecionada.Deposita(Convert.ToDouble(textoValor.Text));
@@ -91,6 +94,11 @@ namespace Banco
         {
             int indice = comboContas.SelectedIndex;
             Conta selecionada = this.contas[indice];
+            AtualizaCampos(selecionada);
+        }
+
+        private void AtualizaCampos(Conta selecionada)
+        {
             textoNumero.Text = Convert.ToString(selecionada.Numero);
             textoTitular.Text = Convert.ToString(selecionada.Titular.Nome);
             textoSaldo.Text = Convert.ToString(selecionada.Saldo);
@@ -140,6 +148,20 @@ namespace Banco
             t = sv;
             MessageBox.Show("imposto do seguro pela interface = " + t.CalculaTributos());
             */
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string nomeTitular = textoBuscaTitular.Text;
+            try
+            {
+                Conta conta = dicionario[nomeTitular];
+                comboContas.SelectedItem = conta;
+            }
+            catch (KeyNotFoundException)
+            {
+                MessageBox.Show("Não existe uma conta com esse nome de cliente no dicionário.");
+            }
         }
     }
 }
