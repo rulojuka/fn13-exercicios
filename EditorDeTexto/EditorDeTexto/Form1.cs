@@ -52,5 +52,64 @@ namespace EditorDeTexto
                 //saida.Close();
             }
         }
+
+        private void botaoBusca_Click(object sender, EventArgs e)
+        {
+            string busca = textoBusca.Text;
+            string textoDoEditor = textoConteudo.Text;
+            int resultado = textoDoEditor.IndexOf(busca);
+            if(resultado >= 0)
+            {
+                MessageBox.Show("achei o texto " + busca);
+            }
+            else
+            {
+                MessageBox.Show("Não achei");
+            }
+        }
+
+        private void botaoReplace_Click(object sender, EventArgs e)
+        {
+            string busca = textoBusca.Text;
+            string replace = textoReplace.Text;
+            string textoDoEditor = textoConteudo.Text;
+            textoConteudo.Text = textoConteudo.Text.Replace(busca, replace);
+        }
+
+        private void botaoMaiuscula_Click(object sender, EventArgs e)
+        {
+            textoConteudo.Text = textoConteudo.Text.ToUpper();
+        }
+
+        private void botaoMinuscula_Click(object sender, EventArgs e)
+        {
+            textoConteudo.Text = textoConteudo.Text.ToLower();
+        }
+
+        private void botaoMaiusculaSelecionado_Click(object sender, EventArgs e)
+        {
+            int inicioSelecao = textoConteudo.SelectionStart;
+            int tamanhoSelecao = textoConteudo.SelectionLength;
+
+            string textoSelecionado = textoConteudo.Text.Substring(inicioSelecao, tamanhoSelecao);
+
+            string antes = textoConteudo.Text.Substring(0, inicioSelecao);
+            string depois = textoConteudo.Text.Substring(inicioSelecao + tamanhoSelecao);
+
+            textoConteudo.Text = antes + textoSelecionado.ToUpper() + depois;
+        }
+
+        private void botaoMinusculaSelecao_Click(object sender, EventArgs e)
+        {
+            int inicioSelecao = textoConteudo.SelectionStart;
+            int tamanhoSelecao = textoConteudo.SelectionLength;
+
+            string textoSelecionado = textoConteudo.Text.Substring(inicioSelecao, tamanhoSelecao);
+
+            string antes = textoConteudo.Text.Substring(0, inicioSelecao);
+            string depois = textoConteudo.Text.Substring(inicioSelecao + tamanhoSelecao);
+
+            textoConteudo.Text = antes + textoSelecionado.ToLower() + depois;
+        }
     }
 }
