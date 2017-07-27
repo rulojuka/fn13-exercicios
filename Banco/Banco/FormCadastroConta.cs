@@ -1,4 +1,5 @@
-﻿using Banco.Contas;
+﻿using Banco.Busca;
+using Banco.Contas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,25 +15,42 @@ namespace Banco
     public partial class FormCadastroConta : Form
     {
         private Form1 formPrincipal;
+        private ICollection<string> devedores;
         public FormCadastroConta(Form1 formPrincipal)
         {
             this.formPrincipal = formPrincipal;
             InitializeComponent();
+
+            GeradorDeDevedores gerador = new GeradorDeDevedores();
+            this.devedores = gerador.GeraList();
         }
 
         private void botaoCadastro_Click(object sender, EventArgs e)
         {
             Conta novaConta;
-            if (comboTipoConta.SelectedIndex == 0)
+            string nomeDoTitular = textoTitular.Text;
+            bool ehDevedor = false;
+            for (int i = 0; i < 30000; i++)
             {
-                novaConta = new ContaCorrente();
+                ehDevedor = this.devedores.Contains(nomeDoTitular);
+            }
+            if (ehDevedor)
+            {
+                MessageBox.Show("DEVEDOR!");
             }
             else
             {
-                novaConta = new ContaPoupanca();
+                if (comboTipoConta.SelectedIndex == 0)
+                {
+                    novaConta = new ContaCorrente();
+                }
+                else
+                {
+                    novaConta = new ContaPoupanca();
+                }
+                novaConta.Titular = new Cliente(textoTitular.Text);
+                this.formPrincipal.AdicionaConta(novaConta);
             }
-            novaConta.Titular = new Cliente(textoTitular.Text);
-            this.formPrincipal.AdicionaConta(novaConta);
             this.Close();
         }
 
