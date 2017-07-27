@@ -13,16 +13,14 @@ namespace Banco
 {
     public partial class Form1 : Form
     {
-        private Conta[] contas;
-        private int numeroDeContas;
+        private List<Conta> contas;
         public Form1()
         {
             InitializeComponent();
         }
         public void AdicionaConta(Conta conta)
         {
-            this.contas[this.numeroDeContas] = conta;
-            this.numeroDeContas++;
+            this.contas.Add(conta);
             comboContas.Items.Add(conta);
             comboDestinoTransferencia.Items.Add(conta);
         }
@@ -31,7 +29,7 @@ namespace Banco
         {
             //comboContas.DisplayMember = "Titular";
             //comboDestinoTransferencia.DisplayMember = "Titular";
-            contas = new Conta[10];
+            contas = new List<Conta>();
 
             Conta aux;
             aux = new ContaCorrente();
