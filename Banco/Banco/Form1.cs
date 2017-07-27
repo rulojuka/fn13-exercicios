@@ -163,5 +163,11 @@ namespace Banco
                 MessageBox.Show("Não existe uma conta com esse nome de cliente no dicionário.");
             }
         }
+
+        private void botaoRelatorios_Click(object sender, EventArgs e)
+        {
+            FormRelatorios form = new FormRelatorios(this.contas);
+            form.ShowDialog();
+        }
     }
 }

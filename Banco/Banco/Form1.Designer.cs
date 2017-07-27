@@ -51,6 +51,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textoBuscaTitular = new System.Windows.Forms.TextBox();
             this.botaoBusca = new System.Windows.Forms.Button();
+            this.botaoRelatorios = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -276,11 +277,22 @@
             this.botaoBusca.UseVisualStyleBackColor = true;
             this.botaoBusca.Click += new System.EventHandler(this.button4_Click);
             // 
+            // botaoRelatorios
+            // 
+            this.botaoRelatorios.Location = new System.Drawing.Point(22, 424);
+            this.botaoRelatorios.Name = "botaoRelatorios";
+            this.botaoRelatorios.Size = new System.Drawing.Size(75, 23);
+            this.botaoRelatorios.TabIndex = 21;
+            this.botaoRelatorios.Text = "Relatórios";
+            this.botaoRelatorios.UseVisualStyleBackColor = true;
+            this.botaoRelatorios.Click += new System.EventHandler(this.botaoRelatorios_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 437);
+            this.ClientSize = new System.Drawing.Size(274, 472);
+            this.Controls.Add(this.botaoRelatorios);
             this.Controls.Add(this.botaoImpostos);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -324,6 +336,7 @@
         private System.Windows.Forms.Button botaoBusca;
         private System.Windows.Forms.TextBox textoBuscaTitular;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button botaoRelatorios;
     }
 }
 
