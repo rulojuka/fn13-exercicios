@@ -10,12 +10,20 @@ namespace Banco
 	{
 		public override bool Saca(double valor)
 		{
-			return base.Saca(valor+0.05);
+            if(this.Saldo >= valor + 0.05)
+            {
+                this.Saldo -= valor + 0.05;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 		}
 
 		public override void Deposita(double valor)
 		{
-			base.Deposita(valor-0.10);
+            this.Saldo += valor - 0.10;
 		}
 	}
 }

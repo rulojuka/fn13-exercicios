@@ -8,7 +8,12 @@ namespace Banco
 {
 	class ContaPoupanca:Conta
 	{
-		public override bool Saca(double valor)
+        public override void Deposita(double valor)
+        {
+            this.Saldo += valor;
+        }
+
+        public override bool Saca(double valor)
 		{
 			if ( (valor+0.1) <= this.Saldo)
 			{

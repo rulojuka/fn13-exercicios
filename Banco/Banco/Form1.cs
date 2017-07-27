@@ -31,7 +31,7 @@ namespace Banco
 			contas = new Conta[10];
 
             Conta aux;
-			aux = new Conta();
+			aux = new ContaCorrente();
 			aux.Titular = new Cliente("Victor");
 			aux.Numero = 1;
             this.AdicionaConta(aux);

@@ -6,26 +6,15 @@ using System.Threading.Tasks;
 
 namespace Banco
 {
-	public class Conta
+	public abstract class Conta
 	{
 		public double Saldo { get; protected set; }
 		public Cliente Titular { get; set; }
 		public int Numero { get; set; }
 
-		public virtual void Deposita(double valor)
-		{
-			this.Saldo += valor;
-		}
+        public abstract void Deposita(double valor);
 
-		public virtual bool Saca(double valor)
-		{
-			if (valor <= this.Saldo)
-			{
-				this.Saldo -= valor;
-				return true;
-			}
-			return false;
-		}
+        public abstract bool Saca(double valor);
 
 		public void Transfere(double valor, Conta destino)
 		{

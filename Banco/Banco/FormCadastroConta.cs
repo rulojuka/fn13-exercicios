@@ -24,9 +24,6 @@ namespace Banco
             Conta novaConta;
             if (comboTipoConta.SelectedIndex == 0)
             {
-                novaConta = new Conta();
-            } else if(comboTipoConta.SelectedIndex == 1)
-            {
                 novaConta = new ContaCorrente();
             }
             else
@@ -41,7 +38,6 @@ namespace Banco
 
         private void FormCadastroConta_Load(object sender, EventArgs e)
         {
-            comboTipoConta.Items.Add("Conta");
             comboTipoConta.Items.Add("ContaCorrente");
             comboTipoConta.Items.Add("ContaPoupanca");
 
