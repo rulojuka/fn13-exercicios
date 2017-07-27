@@ -11,6 +11,13 @@ namespace Banco
 		public double Saldo { get; protected set; }
 		public Cliente Titular { get; set; }
 		public int Numero { get; set; }
+        private static int numeroDeContas;
+
+        public Conta()
+        {
+            Conta.numeroDeContas++;
+            this.Numero = Conta.numeroDeContas;
+        }
 
         public abstract void Deposita(double valor);
 
@@ -21,6 +28,11 @@ namespace Banco
 			this.Saca(valor);
 			destino.Deposita(valor);
 		}
+
+        public static int ProximoNumero()
+        {
+            return Conta.numeroDeContas + 1;
+        }
 
 	}
 }

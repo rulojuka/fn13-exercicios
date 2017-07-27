@@ -31,7 +31,6 @@ namespace Banco
                 novaConta = new ContaPoupanca();
             }
             novaConta.Titular = new Cliente(textoTitular.Text);
-            novaConta.Numero = Convert.ToInt32(textoNumero.Text);
             this.formPrincipal.AdicionaConta(novaConta);
             this.Close();
         }
@@ -40,7 +39,8 @@ namespace Banco
         {
             comboTipoConta.Items.Add("ContaCorrente");
             comboTipoConta.Items.Add("ContaPoupanca");
-
+            textoNumero.Text = Convert.ToString(Conta.ProximoNumero());
+            textoNumero.Enabled = false;
         }
     }
 }
