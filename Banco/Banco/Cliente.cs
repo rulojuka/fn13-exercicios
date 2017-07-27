@@ -18,5 +18,10 @@ namespace Banco
 			this.Nome = nome;
 		}
 
-	}
+        public override string ToString()
+        {
+            return this.Nome;
+        }
+
+    }
 }

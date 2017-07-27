@@ -23,12 +23,14 @@ namespace Banco
         {
             this.contas[this.numeroDeContas] = conta;
             this.numeroDeContas++;
-            comboContas.Items.Add("titular: " + conta.Titular.Nome);
-            comboDestinoTransferencia.Items.Add("titular: " + conta.Titular.Nome);
+            comboContas.Items.Add(conta);
+            comboDestinoTransferencia.Items.Add(conta);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //comboContas.DisplayMember = "Titular";
+            //comboDestinoTransferencia.DisplayMember = "Titular";
             contas = new Conta[10];
 
             Conta aux;
@@ -51,8 +53,7 @@ namespace Banco
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int indice = comboContas.SelectedIndex;
-            Conta selecionada = this.contas[indice];
+            Conta selecionada = (Conta) comboContas.SelectedItem;
             try
             {
                 selecionada.Deposita(Convert.ToDouble(textoValor.Text));
@@ -71,8 +72,7 @@ namespace Banco
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int indice = comboContas.SelectedIndex;
-            Conta selecionada = this.contas[indice];
+            Conta selecionada = (Conta)comboContas.SelectedItem;
             try
             {
                 selecionada.Saca(Convert.ToDouble(textoValor.Text));
